@@ -296,3 +296,17 @@
 - Refactored `Blog.jsx` to fetch and render the blog grid dynamically from the backend API.
 - Refactored `BlogDetails.jsx` to parse the `_id` from `window.location.hash`, fetch the specific article from the backend, and render the exact content and images.
 - Connected the "Related Articles" section in `BlogDetails.jsx` to dynamically fetch other blogs from the database.
+
+## 2026-06-19 — Repository Initialization
+**What**: Initialized Git repository and pushed entire full-stack project to GitHub.
+**Why**: To backup the code, enable version control, and set up the foundation for continuous deployment.
+**Files Changed**: `.gitignore`
+- Created root `.gitignore` to prevent committing `node_modules`, `.env`, and build directories.
+- Pushed all code to `https://github.com/MBKANERIYA/mahalaxmi-realty.git` on the `main` branch.
+
+## 2026-06-19 — Typography UI Fix
+**What**: Changed the font family for numerical stat readouts.
+**Why**: To ensure numbers in stat widgets appear in the standard readable body font instead of the elegant serif heading font.
+**Files Changed**: `frontend/src/index.css`, `frontend/src/pages/Societies.jsx`
+- Added `.font-body` utility class to `index.css`.
+- Applied `.font-body` to the top stats cards (`h4` tags) in `Societies.jsx`.

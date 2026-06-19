@@ -35,6 +35,15 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading) !important;
   color: var(--theme-text-dark);
   font-weight: 600;
+  /* Force normal baseline numbers (lining figures) instead of old-style dipped numbers */
+  font-variant-numeric: lining-nums tabular-nums !important;
+  -moz-font-feature-settings: "lnum" 1, "tnum" 1;
+  -webkit-font-feature-settings: "lnum" 1, "tnum" 1;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+
+.font-body {
+  font-family: var(--font-body) !important;
 }
 
 /* Global utility classes */

@@ -110,15 +110,15 @@ export default function Societies() {
         <div className="d-flex flex-wrap gap-4 mb-5">
           <div className="card border-0 shadow-sm rounded-3 px-4 py-3 bg-white" style={{ border: '1px solid rgba(0,0,0,0.05) !important' }}>
             <span className="small text-secondary mb-1 d-block">Societies Reviewed</span>
-            <h4 className="fw-bold mb-0 text-dark">7</h4>
+            <h4 className="fw-bold mb-0 text-dark font-body">7</h4>
           </div>
           <div className="card border-0 shadow-sm rounded-3 px-4 py-3 bg-white" style={{ border: '1px solid rgba(0,0,0,0.05) !important' }}>
             <span className="small text-secondary mb-1 d-block">RERA Verified</span>
-            <h4 className="fw-bold mb-0 text-success">5 of 7</h4>
+            <h4 className="fw-bold mb-0 text-success font-body">5 of 7</h4>
           </div>
           <div className="card border-0 shadow-sm rounded-3 px-4 py-3 bg-white" style={{ border: '1px solid rgba(0,0,0,0.05) !important' }}>
             <span className="small text-secondary mb-1 d-block">Price Range</span>
-            <h4 className="fw-bold mb-0 text-dark">₹24K - 85K/sq.yd</h4>
+            <h4 className="fw-bold mb-0 text-dark font-body">₹24K - 85K/sq.yd</h4>
           </div>
         </div>
       </section>
