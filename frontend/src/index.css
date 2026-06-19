@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Premium Real Estate Theme Palette */
+  --theme-primary: #C19A6B; /* Elegant Gold */
+  --theme-primary-hover: #A88152;
+  --theme-primary-light: rgba(193, 154, 107, 0.1);
+  
+  --theme-dark: #0F172A; /* Deep Slate / Navy */
+  --theme-dark-alt: #1E293B; /* Slightly Lighter Slate */
+  
+  --theme-bg: #FDFBF7; /* Pearl White */
+  --theme-surface: #FFFFFF; /* Pure White */
+  
+  --theme-text: #475569; /* Slate Gray */
+  --theme-text-light: #94A3B8; /* Light Slate */
+  --theme-text-dark: #0F172A;
+  
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading) !important;
+  color: var(--theme-text-dark);
+  font-weight: 600;
+}
+
+/* Global utility classes */
+.text-theme-primary { color: var(--theme-primary) !important; }
+.bg-theme-primary { background-color: var(--theme-primary) !important; }
+.bg-theme-dark { background-color: var(--theme-dark) !important; }
+.bg-theme-dark-alt { background-color: var(--theme-dark-alt) !important; }
+.text-theme-dark { color: var(--theme-text-dark) !important; }
+
+/* Global Button Styling */
+.btn-theme {
+  background-color: var(--theme-primary);
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-theme:hover {
+  background-color: var(--theme-primary-hover);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Premium Animations & Effects */
+.fade-up {
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Luxury Cards */
+.premium-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0,0,0,0.04) !important;
+}
+.premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06) !important;
+  border-color: var(--theme-primary-light) !important;
+}
+
+/* Glass effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+}
