@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';
+
 export default function BlogDetails() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ export default function BlogDetails() {
 
     if (!blogId || blogId === 'blog') return;
 
-    fetch(`http://localhost:5001/api/blogs/${blogId}`)
+    fetch(`${API_URL}/api/blogs/${blogId}`)
       .then(res => res.json())
       .then(data => {
         setPost(data);
@@ -29,7 +31,7 @@ export default function BlogDetails() {
       });
 
     // Fetch related posts
-    fetch('http://localhost:5001/api/blogs')
+    fetch(`${API_URL}/api/blogs`)
       .then(res => res.json())
       .then(data => {
         // Exclude current and pick 2

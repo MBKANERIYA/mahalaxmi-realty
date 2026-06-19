@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';
+
 export default function PropertyDetails() {
   const [property, setProperty] = useState(null);
   const [similarProperties, setSimilarProperties] = useState([]);
@@ -10,13 +12,13 @@ export default function PropertyDetails() {
   useEffect(() => {
     window.scrollTo(0, 0);
     // Fetch current property
-    fetch(`http://localhost:5001/api/properties/${id}`)
+    fetch(`${API_URL}/api/properties/${id}`)
       .then(res => res.json())
       .then(data => setProperty(data))
       .catch(err => console.error(err));
 
     // Fetch similar properties
-    fetch(`http://localhost:5001/api/properties`)
+    fetch(`${API_URL}/api/properties`)
       .then(res => res.json())
       .then(data => {
         // Just take the first 3 that aren't the current one

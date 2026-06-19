@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';
+
 export default function Properties() {
   const [properties, setProperties] = useState([]);
   
@@ -18,7 +20,7 @@ export default function Properties() {
   });
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/properties')
+    fetch(`${API_URL}/api/properties`)
       .then(res => res.json())
       .then(data => setProperties(data))
       .catch(err => console.error(err));

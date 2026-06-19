@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';
+
 export default function Blog() {
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/blogs')
+    fetch(`${API_URL}/api/blogs`)
       .then(res => res.json())
       .then(data => {
         setBlogPosts(data);

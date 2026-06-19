@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';
+
 export default function Listings() {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/properties?featured=true')
+    fetch(`${API_URL}/api/properties?featured=true`)
       .then(res => res.json())
       .then(data => setProperties(data))
       .catch(err => console.error(err));

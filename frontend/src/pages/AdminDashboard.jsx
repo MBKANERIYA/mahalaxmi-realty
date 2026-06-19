@@ -21,6 +21,8 @@ import {
 } from "../data/categoryFields";
 import "../admin.css";
 
+const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';
+
 export default function AdminDashboard() {
     const formRef = useRef(null);
     const fileInputRef = useRef(null);
@@ -149,7 +151,7 @@ export default function AdminDashboard() {
                 formData.append('images', file);
             });
 
-            const res = await fetch('http://localhost:5001/api/upload', {
+            const res = await fetch('${API_URL}/api/upload', {
                 method: 'POST',
                 body: formData
             });
@@ -210,7 +212,7 @@ export default function AdminDashboard() {
         payload.pricePerSqYd = payload.priceUnit ? `${payload.price} ${payload.priceUnit}` : payload.price;
 
         try {
-            const res = await fetch('http://localhost:5001/api/properties', {
+            const res = await fetch('${API_URL}/api/properties', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
