@@ -339,9 +339,3 @@
 **What**: Flattened the entire project structure by moving all `frontend/*` and `backend/*` files to the repository root.
 **Why**: Vercel expects a standard Vite or Next.js app at the root by default. Trying to configure the "Root Directory" or `experimentalServices` was causing confusion and deployment failures (like `vite: command not found`). Moving everything to the root ensures Vercel automatically detects the Vite frontend, runs `npm install`, builds the UI, and automatically deploys the `api/` folder as Serverless Functions with zero configuration required.
 **Files Changed**: Every file was moved from `frontend/` to `/`. The `backend` and `frontend` folders were removed.
-
-## 2026-06-22 — Added Property Search Button to Header
-**What**: Added a prominent property search button below the main header navigation.
-**Why**: To improve user experience by allowing quick access to the properties search page from anywhere on the site.
-**Files Changed**: `src/components/Header.jsx`
-- Added a full-width, rounded search button linked to `#/properties` below the header flex container.
