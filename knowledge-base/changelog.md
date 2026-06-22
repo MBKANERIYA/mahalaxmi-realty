@@ -317,3 +317,10 @@
 **Files Changed**: `frontend/.env`, `backend/server.js`
 - Created `frontend/.env` with `VITE_API_URL=http://localhost:5000`
 - Updated `backend/server.js` to use `process.env.PORT || 5001`
+
+## 2026-06-22 — Fixed Vercel API Routing
+**What**: Updated `API_URL` fallbacks and fixed syntax errors in `AdminDashboard.jsx`.
+**Why**: On Vercel, the properties and blogs were not fetching because `API_URL` was falling back to the literal string `'${API_URL}'`, causing 404s. By changing it to `''`, the frontend correctly requests `/api/...` relative to the current Vercel origin. Additionally, fixed single quotes to backticks in `fetch` calls.
+**Files Changed**: `frontend/src/pages/AdminDashboard.jsx`, `frontend/src/components/Listings.jsx`, `frontend/src/pages/Blog.jsx`, `frontend/src/pages/BlogDetails.jsx`, `frontend/src/pages/Properties.jsx`, `frontend/src/pages/PropertyDetails.jsx`
+- Replaced `const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';` with `const API_URL = import.meta.env.VITE_API_URL || '';` across all fetch files
+- Fixed single quotes to template literals (backticks) in `AdminDashboard.jsx` `fetch` requests
