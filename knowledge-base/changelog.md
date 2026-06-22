@@ -310,3 +310,10 @@
 **Files Changed**: `frontend/src/index.css`, `frontend/src/pages/Societies.jsx`
 - Added `.font-body` utility class to `index.css`.
 - Applied `.font-body` to the top stats cards (`h4` tags) in `Societies.jsx`.
+
+## 2026-06-22 — Fixed Frontend Data Fetching
+**What**: Created a `.env` file in the frontend and fixed backend port hardcoding.
+**Why**: The frontend was failing to fetch data because it didn't have `VITE_API_URL` defined, defaulting to literally `http://localhost:5173/${API_URL}/...`. The backend was ignoring the `PORT=5000` defined in its `.env` and was hardcoded to `5001`.
+**Files Changed**: `frontend/.env`, `backend/server.js`
+- Created `frontend/.env` with `VITE_API_URL=http://localhost:5000`
+- Updated `backend/server.js` to use `process.env.PORT || 5001`
