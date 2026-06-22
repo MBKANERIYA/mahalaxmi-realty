@@ -324,3 +324,13 @@
 **Files Changed**: `frontend/src/pages/AdminDashboard.jsx`, `frontend/src/components/Listings.jsx`, `frontend/src/pages/Blog.jsx`, `frontend/src/pages/BlogDetails.jsx`, `frontend/src/pages/Properties.jsx`, `frontend/src/pages/PropertyDetails.jsx`
 - Replaced `const API_URL = import.meta.env.VITE_API_URL || '${API_URL}';` with `const API_URL = import.meta.env.VITE_API_URL || '';` across all fetch files
 - Fixed single quotes to template literals (backticks) in `AdminDashboard.jsx` `fetch` requests
+
+## 2026-06-22 — Refactored Backend for Vercel Serverless Functions
+**What**: Moved backend source into `frontend/api` and merged `package.json` dependencies.
+**Why**: Since Vercel was configured with `frontend` as the Root Directory, the `backend` folder and root `vercel.json` were entirely ignored during deployment, causing 404 errors for the API. By moving the Express backend to `frontend/api/index.js`, Vercel automatically deploys it as serverless functions.
+**Files Changed**: `frontend/api/index.js`, `frontend/api/models/*`, `frontend/package.json`, `frontend/vercel.json`, deleted root `vercel.json`
+- Moved `backend/server.js` to `frontend/api/index.js`
+- Moved `backend/models` to `frontend/api/models`
+- Injected backend dependencies into `frontend/package.json`
+- Added `start:api` script to `frontend/package.json`
+- Updated `frontend/vercel.json` with a rewrite to proxy `/api/(.*)` to `/api/index`
