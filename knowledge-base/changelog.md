@@ -334,3 +334,8 @@
 - Injected backend dependencies into `frontend/package.json`
 - Added `start:api` script to `frontend/package.json`
 - Updated `frontend/vercel.json` with a rewrite to proxy `/api/(.*)` to `/api/index`
+
+## 2026-06-22 — Flattened Monorepo for Vercel Deployment
+**What**: Flattened the entire project structure by moving all `frontend/*` and `backend/*` files to the repository root.
+**Why**: Vercel expects a standard Vite or Next.js app at the root by default. Trying to configure the "Root Directory" or `experimentalServices` was causing confusion and deployment failures (like `vite: command not found`). Moving everything to the root ensures Vercel automatically detects the Vite frontend, runs `npm install`, builds the UI, and automatically deploys the `api/` folder as Serverless Functions with zero configuration required.
+**Files Changed**: Every file was moved from `frontend/` to `/`. The `backend` and `frontend` folders were removed.
